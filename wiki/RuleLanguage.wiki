@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+
+= JSONRule Metamodel=
+
+http://hydrogen.informatik.tu-cottbus.de/wiki/images/6/6d/JSONRuleLang.png
+
+ # [EventExpressions]
+ # [Conditions]
+ # [Actions]
