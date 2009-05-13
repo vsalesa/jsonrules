@@ -1,4 +1,4 @@
-#summary [RuleLanguage JSON Rules] event expressions are related to the Event interface specification in Document Object Model.
+#summary [http://code.google.com/p/jsonrules/wiki/RuleLanguage JSON Rules] event expressions are related to the Event interface specification in Document Object Model.
 
 == What is an Event Expression ==
 
