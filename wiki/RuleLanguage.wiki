@@ -1,7 +1,34 @@
-= JSONRule Metamodel=
+== JSONRule Metamodel==
 
 http://hydrogen.informatik.tu-cottbus.de/wiki/images/6/6d/JSONRuleLang.png
 
- # [EventExpressions]
- # [Conditions]
- # [Actions]
+||[EventExpressions]||[Conditions]||[Actions]||
+
+== A First Example ==
+
+'''Rule:''' On any occurrence of a <code>click</code> event on an element with class <code>note</code> having as first child a <code>ul</code> element, change the first child background color to <code>blue</code>.
+<pre>
+{
+ "id":"rule101",
+ "appliesTo": ["http://www.yahoo.com", "http://www.google.com/"],
+ "eventExpression": { "eventType": "click",
+                       "eventTarget": "$X"
+                     },
+ "conditions": [
+    "$X:Element( class == 'note',$Y:firstChild)",
+    "$Y.tagName == 'ul'",
+    ],
+ "actions":
+   ["changeBackground($Y, 'blue')"]
+}
+</pre>
+
+The above example shows that the rule is a JSON object with the following properties:
+
+* <code>id</code> - a required string-valued attribute. The identified of the rule. This is unique in the scope of a rule set  
+* <code>appliesTo</code> - a required array containing the URL's of the pages on which this rule will apply. If this array is empty then rule will be never executed.
+* <code>eventExpression</code> -  an optional property capturing the triggering event for this rule. Its value is a [[JSON object]] with the following structure:
+** <code>eventType</code> - a string-valued attribute.  Its value is the identification string of any DOM Event types (such as <code>load</code> or <code>mousedown</code> or <code>DOMNodeInserted</code> ...)
+** <code>eventTarget</code> - a property capturing the target of the corresponding event type. It value is a ''JSONTerm'' capturing this target. In the above example  the <code>eventTarget</code> value is a ''rule variable'' bound to the DOM element on which the event occurs.
+* <code>conditions</code> - a required array encoding rule conditions. If this array is empty, then by default the conditions will be evaluated to <code>true</code>.
+* <code>actions</code> - a required array of JavaScript function calls. These actions will be executed sequentially using the array default order. If this array is empty, no function call is performed.
