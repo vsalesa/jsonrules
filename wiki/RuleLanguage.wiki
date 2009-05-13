@@ -2,7 +2,9 @@
 
 http://hydrogen.informatik.tu-cottbus.de/wiki/images/6/6d/JSONRuleLang.png
 
-||[EventExpressions]||[Conditions]||[Actions]||
+|| [EventExpressions] ||
+|| [Conditions] ||
+|| [Actions] ||
 
 == A First Example ==
 
